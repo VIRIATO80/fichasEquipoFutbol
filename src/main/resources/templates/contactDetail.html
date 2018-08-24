@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Ficha de jugador</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+<link href="#" th:href="@{/css/tabs.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="jumbotron">
+		<div class="container">
+			<h1><span th:text="${contactModel.nombreJugador}"></span></h1>
+			<br />
+			<div class="row">
+				<div class="col-sm-6">
+					<h3><strong>Temporada:</strong> <span th:text="${contactModel.temporada}"></span></h3>
+				</div>
+				<div class="col-sm-6 text-right">
+					<img th:src="@{/imgs/__${contactModel.id}__.jpg}"  width="150px" />
+				</div>
+			</div>
+			<br />
+			<div class="tabbable-panel">
+				<div class="tabbable-line">
+					<ul class="nav nav-tabs ">
+						<li class="active"><a href="#tab_default_1" data-toggle="tab"> Datos personales</a></li>
+						<li><a href="#tab_default_2" data-toggle="tab"> Padres</a></li>
+						<li><a href="#tab_default_3" data-toggle="tab"> Cuotas</a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane active" id="tab_default_1">
+							<div class="row margin_line">
+								<div class="col-sm-5">
+									<strong>Fecha Nacimiento:</strong> <span th:text="${contactModel.fechaNacimiento}"></span>
+								</div>
+								<div class="col-sm-5">
+									<strong>DNI:</strong> <span th:text="${contactModel.dni}"></span>
+								</div>
+								<div class="col-sm-1"></div>
+							</div>
+							<div class="row margin_line">
+								<div class="col-sm-5">
+									<strong>Teléfono Móvil:</strong> <span th:text="${contactModel.movil}"></span>
+								</div>
+								<div class="col-sm-5">
+									<strong>Teléfono Fijo:</strong> <span th:text="${contactModel.fijo}"></span>
+								</div>
+								<div class="col-sm-1"></div>
+							</div>		
+							<div class="row margin_line">
+								<div class="col-sm-11">
+									<strong>Correo electrónico:</strong> <span th:text="${contactModel.email}"></span>
+								</div>
+							</div>		
+							<div class="row margin_line">
+								<div class="col-sm-11">
+									<strong>Categoría y Equipo:</strong> <span th:text="${contactModel.equipo}"></span>
+								</div>
+							</div>																			
+						</div>
+						<div class="tab-pane" id="tab_default_2">
+							<div class="row margin_line">
+								<div class="col-sm-7">
+									<strong>Nombre Padre:</strong> <span th:text="${contactModel.nombrePadre}"></span>
+								</div>
+								<div class="col-sm-4">
+									<strong>DNI:</strong> <span th:text="${contactModel.dniPadre}"></span>
+								</div>
+								<div class="col-sm-1"></div>
+							</div>
+							<div class="row margin_line">
+								<div class="col-sm-7">
+									<strong>Nombre Madre:</strong> <span th:text="${contactModel.nombreMadre}"></span>
+								</div>
+								<div class="col-sm-4">
+									<strong>DNI:</strong> <span th:text="${contactModel.dniMadre}"></span>
+								</div>
+								<div class="col-sm-1"></div>
+							</div>								
+							<div class="row margin_line">
+								<div class="col-sm-7">
+									<strong>Email Padre:</strong> <span th:text="${contactModel.emailPadre}"></span>
+								</div>
+								<div class="col-sm-4">
+									<strong>Teléfono Padre:</strong> <span th:text="${contactModel.movilPadre}"></span>
+								</div>								
+							</div>	
+							<div class="row margin_line">
+								<div class="col-sm-7">
+									<strong>Email Madre:</strong> <span th:text="${contactModel.emailMadre}"></span>
+								</div>
+								<div class="col-sm-4">
+									<strong>Teléfono Madre:</strong> <span th:text="${contactModel.movilMadre}"></span>
+								</div>										
+							</div>										
+						</div>
+						<div class="tab-pane" id="tab_default_3">
+								<div class="row margin_line">
+									<div class="col-sm-5">
+										<strong>Inscripción:</strong> <span th:text="${contactModel.cuotaInscripcion}"></span>
+									</div>
+									<div class="col-sm-5">
+										<strong>Fecha Pago:</strong> <span th:text="${contactModel.fechaPagoInscripcion}"></span>
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+								<div class="row margin_line">
+									<div class="col-sm-5">
+										<strong>2ª cuota:</strong> <span th:text="${contactModel.segundaCuota}"></span>
+									</div>
+									<div class="col-sm-5">
+										<strong>Fecha Pago:</strong> <span th:text="${contactModel.fechaSegundaCuota}"></span>
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+								<div class="row margin_line">
+									<div class="col-sm-5">
+										<strong>3ª cuota:</strong> <span th:text="${contactModel.terceraCuota}"></span>
+									</div>
+									<div class="col-sm-5">
+										<strong>Fecha Pago:</strong> <span th:text="${contactModel.fechaTerceraCuota}"></span>
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+								<div class="row margin_line">
+									<div class="col-sm-5">
+										<strong>4ª cuota:</strong> <span th:text="${contactModel.cuartaCuota}"></span>
+									</div>
+									<div class="col-sm-5">
+										<strong>Fecha Pago:</strong> <span th:text="${contactModel.fechaCuartaCuota}"></span>
+									</div>
+									<div class="col-sm-1"></div>
+								</div>																
+								<div class="row margin_line">
+									<div class="col-sm-5">
+										<strong>5ª cuota:</strong> <span th:text="${contactModel.quintaCuota}"></span>
+									</div>
+									<div class="col-sm-5">
+										<strong>Fecha Pago:</strong> <span th:text="${contactModel.fechaQuintaCuota}"></span>
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+								<div class="row margin_line">
+									<div class="col-sm-5">
+										<strong>6ª cuota:</strong> <span th:text="${contactModel.sextaCuota}"></span>
+									</div>
+									<div class="col-sm-5">
+										<strong>Fecha Pago:</strong> <span th:text="${contactModel.fechaSextaCuota}"></span>
+									</div>
+									<div class="col-sm-1"></div>
+								</div>																																					
+						</div>
+							
+					</div>
+				</div>
+			</div>
+
+			<div class="row margin_line">
+				<div class="col-sm-2"></div>
+				<div class="col-sm-4">
+					<a href="#" th:href="@{/contacts/cancel}">
+						<button class="btn btn-lg btn-primary btn-block" type="button">
+							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+							Volver
+						</button>
+					</a>
+				</div>
+				<div class="col-sm-4">
+					<a href="#" th:href="@{/contacts/removeContact?id=__${contactModel.id}__}" >
+						<button type="button" class="btn btn-lg btn-danger btn-block">
+							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+							Eliminar
+						</button>
+					</a>										
+				</div>
+				<div class="col-sm-2"></div>
+			</div>			
+		</div>
+	</div>
+</body>
+</html>

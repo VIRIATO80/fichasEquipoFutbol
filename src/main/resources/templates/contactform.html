@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Nueva Ficha / Edición</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />	
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>						
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+
+    <link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+    <link href="#" th:href="@{/css/tabs.css}" rel="stylesheet" />
+</head>
+<body>
+
+	<div class="jumbotron">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6">
+					<h1>Ficha de jugador</h1>
+				</div>
+				<div class="col-sm-6 text-right">
+					<img th:src="@{/imgs/__${contactModel.id}__.jpg}"  width="150px" />
+				</div>
+			</div>
+			<br/>
+			<form action="#" th:action="@{/contacts/addcontact}" th:object="${contactModel}" method="post" enctype="multipart/form-data">
+			<input type="hidden" th:field="*{id}" />
+			<div class="tabbable-panel">
+				<div class="tabbable-line">
+					<ul class="nav nav-tabs ">
+						<li class="active"><a href="#tab_default_1" data-toggle="tab"> Datos personales</a></li>
+						<li><a href="#tab_default_2" data-toggle="tab"> Padres</a></li>
+						<li><a href="#tab_default_3" data-toggle="tab"> Cuotas</a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane active" id="tab_default_1">
+							<div class="row margin_line">
+								<div class="col-sm-5">
+									<strong>Nombre:</strong><input type="text" class="form-control" th:field="*{nombreJugador}" th:value="${nombreJugador}" ></input>
+								</div>
+								<div class="col-sm-5">
+									<strong>Temporada:</strong> <input type="text" class="form-control" th:field="*{temporada}" th:value="${temporada}" ></input>
+								</div>
+								<div class="col-sm-1"></div>
+							</div>						
+							<div class="row margin_line">
+								<div class="col-sm-5">
+									<strong>Fecha Nacimiento:</strong>						
+									<div class="form-group">
+                						<div class='input-group date' id='datetimepicker1'>
+                    						<input type="text" class="form-control" th:field="*{fechaNacimiento}" th:value="${fechaNacimiento}" ></input>
+                    						<span class="input-group-addon">
+                        						<span class="glyphicon glyphicon-calendar"></span>
+                    						</span>
+                						</div>
+            						</div>
+								</div>
+								<div class="col-sm-5">
+									<strong>DNI:</strong><input type="text" class="form-control" th:field="*{dni}" th:value="${dni}" ></input>
+								</div>
+								<div class="col-sm-1"></div>
+							</div>
+							<div class="row margin_line">
+								<div class="col-sm-5">
+									<strong>Teléfono Móvil:</strong> <input type="tel" class="form-control" th:field="*{movil}" th:value="${movil}" ></input>
+								</div>
+								<div class="col-sm-5">
+									<strong>Teléfono Fijo:</strong> <input type="tel" class="form-control" th:field="*{fijo}" th:value="${fijo}" ></input>
+								</div>
+								<div class="col-sm-1"></div>
+							</div>		
+							<div class="row margin_line">
+								<div class="col-sm-10">
+									<strong>Correo electrónico:</strong><input type="email" class="form-control" th:field="*{email}" th:value="${email}" ></input>
+								</div>
+							</div>		
+							<div class="row margin_line">
+								<div class="col-sm-10">
+									<strong>Categoría y Equipo:</strong><input type="text" class="form-control" th:field="*{equipo}" th:value="${equipo}" ></input>
+								</div>
+							</div>	
+							<div class="row margin_line">
+								<div class="col-sm-10">
+									<strong>Subir Foto:</strong><input type="file" class="form-control" th:field="*{foto}" th:value="${foto}" ></input>
+								</div>
+							</div>																										
+						</div>
+						<div class="tab-pane" id="tab_default_2">
+							<div class="row margin_line">
+								<div class="col-sm-7">
+									<strong>Nombre Padre:</strong> <input type="text" class="form-control" th:field="*{nombrePadre}" th:value="${nombrePadre}" ></input>
+								</div>
+								<div class="col-sm-4">
+									<strong>DNI Padre:</strong> <input type="text" class="form-control" th:field="*{dniPadre}" th:value="${dniPadre}" ></input>
+								</div>
+								<div class="col-sm-1"></div>
+							</div>
+							<div class="row margin_line">
+								<div class="col-sm-7">
+									<strong>Nombre Madre:</strong> <input type="text" class="form-control" th:field="*{nombreMadre}" th:value="${nombreMadre}" ></input>
+								</div>
+								<div class="col-sm-4">
+									<strong>DNI Madre:</strong><input type="text" class="form-control" th:field="*{dniMadre}" th:value="${dniMadre}" ></input>
+								</div>
+								<div class="col-sm-1"></div>
+							</div>								
+							<div class="row margin_line">
+								<div class="col-sm-7">
+									<strong>Email Padre:</strong> <input type="email" class="form-control" th:field="*{emailPadre}" th:value="${emailPadre}" ></input>
+								</div>
+								<div class="col-sm-4">
+									<strong>Teléfono Padre:</strong> <input type="tel" class="form-control" th:field="*{movilPadre}" th:value="${movilPadre}" ></input>
+								</div>								
+							</div>	
+							<div class="row margin_line">
+								<div class="col-sm-7">
+									<strong>Email Madre:</strong> <input type="email" class="form-control" th:field="*{emailMadre}" th:value="${emailMadre}" ></input>
+								</div>
+								<div class="col-sm-4">
+									<strong>Teléfono Madre:</strong> <input type="tel" class="form-control" th:field="*{movilMadre}" th:value="${movilMadre}" ></input>
+								</div>										
+							</div>										
+						</div>
+						<div class="tab-pane" id="tab_default_3">
+								<div class="row margin_line">
+									<div class="col-sm-5">
+										<strong>Inscripción:</strong> <input type="number" step="any" min="0" class="form-control" th:field="*{cuotaInscripcion}" th:value="${cuotaInscripcion}" ></input>
+									</div>
+									<div class="col-sm-5">
+										<strong>Fecha Pago Inscripción:</strong>
+										<div class="form-group">
+	                						<div class='input-group date' id='datetimepicker2'>
+	                    						<input type="text" class="form-control" th:field="*{fechaPagoInscripcion}" th:value="${fechaPagoInscripcion}" ></input>
+	                    						<span class="input-group-addon">
+	                        						<span class="glyphicon glyphicon-calendar"></span>
+	                    						</span>
+	                						</div>
+            							</div>
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+								<div class="row margin_line">
+									<div class="col-sm-5">
+										<strong>2ª cuota:</strong><input type="number" step="any" min="0" class="form-control" th:field="*{segundaCuota}" th:value="${segundaCuota}" ></input>
+									</div>
+									<div class="col-sm-5">
+										<strong>Fecha 2º Pago:</strong> 
+										<div class="form-group">
+	                						<div class='input-group date' id='datetimepicker3'>
+	                    						<input type="text" class="form-control" th:field="*{fechaSegundaCuota}" th:value="${fechaSegundaCuota}" ></input>
+	                    						<span class="input-group-addon">
+	                        						<span class="glyphicon glyphicon-calendar"></span>
+	                    						</span>
+	                						</div>
+            							</div>										
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+								<div class="row margin_line">
+									<div class="col-sm-5">
+										<strong>3ª cuota:</strong> <input type="number" step="any" min="0" class="form-control" th:field="*{terceraCuota}" th:value="${terceraCuota}" ></input>
+									</div>
+									<div class="col-sm-5">
+										<strong>Fecha 3º Pago:</strong>
+										<div class="form-group">
+	                						<div class='input-group date' id='datetimepicker4'>
+	                    						<input type="text" class="form-control" th:field="*{fechaTerceraCuota}" th:value="${fechaTerceraCuota}" ></input>
+	                    						<span class="input-group-addon">
+	                        						<span class="glyphicon glyphicon-calendar"></span>
+	                    						</span>
+	                						</div>
+            							</div>																						
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+								<div class="row margin_line">
+									<div class="col-sm-5">
+										<strong>4ª cuota:</strong> <input type="number" step="any" min="0" class="form-control" th:field="*{cuartaCuota}" th:value="${cuartaCuota}" ></input>
+									</div>
+									<div class="col-sm-5">
+										<strong>Fecha 4º Pago:</strong>
+										<div class="form-group">
+	                						<div class='input-group date' id='datetimepicker5'>
+	                    						<input type="text" class="form-control" th:field="*{fechaCuartaCuota}" th:value="${fechaCuartaCuota}" ></input>
+	                    						<span class="input-group-addon">
+	                        						<span class="glyphicon glyphicon-calendar"></span>
+	                    						</span>
+	                						</div>
+            							</div>												
+									</div>
+									<div class="col-sm-1"></div>
+								</div>																
+								<div class="row margin_line">
+									<div class="col-sm-5">
+										<strong>5ª cuota:</strong><input type="number" step="any" min="0" class="form-control" th:field="*{quintaCuota}" th:value="${quintaCuota}" ></input>
+									</div>
+									<div class="col-sm-5">
+										<strong>Fecha 5º Pago:</strong>
+										<div class="form-group">
+	                						<div class='input-group date' id='datetimepicker6'>
+	                    						<input type="text" class="form-control" th:field="*{fechaQuintaCuota}" th:value="${fechaQuintaCuota}" ></input>
+	                    						<span class="input-group-addon">
+	                        						<span class="glyphicon glyphicon-calendar"></span>
+	                    						</span>
+	                						</div>
+            							</div>														
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+								<div class="row margin_line">
+									<div class="col-sm-5">
+										<strong>6ª cuota:</strong><input type="number" step="any" min="0" class="form-control" th:field="*{sextaCuota}" th:value="${sextaCuota}" ></input>
+									</div>
+									<div class="col-sm-5">
+										<strong>Fecha 6ª Pago:</strong> 
+										<div class="form-group">
+	                						<div class='input-group date' id='datetimepicker7'>
+	                    						<input type="text" class="form-control" th:field="*{fechaSextaCuota}" th:value="${fechaSextaCuota}" ></input>
+	                    						<span class="input-group-addon">
+	                        						<span class="glyphicon glyphicon-calendar"></span>
+	                    						</span>
+	                						</div>
+            							</div>												
+									</div>
+									<div class="col-sm-1"></div>
+								</div>																																					
+						</div>							
+					</div>
+				</div>
+			</div>
+			<div class="row margin_line">
+				<div class="col-sm-2"></div>
+				<div class="col-sm-4">
+					<button class="btn btn-lg btn-primary btn-block" type="submit">
+						<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Guardar
+					</button>
+				</div>
+				<div class="col-sm-4">
+					<a href="#" th:href="@{/contacts/cancel}">
+						<button class="btn btn-lg btn-primary btn-block" type="submit">
+							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+						</button>
+					</a>										
+				</div>
+				<div class="col-sm-2"></div>
+			</div>						
+		  </form>		
+		</div>
+	</div>
+	<script>
+	    $(function () {
+	        $('#datetimepicker1').datetimepicker({
+	        	locale: 'es',
+	        	format: 'DD/MM/YYYY'
+	        });
+	        $('#datetimepicker2').datetimepicker({
+	        	locale: 'es',
+	        	format: 'DD/MM/YYYY'
+	        });
+	        $('#datetimepicker3').datetimepicker({
+	        	locale: 'es',
+	        	format: 'DD/MM/YYYY'
+	        });
+	        $('#datetimepicker4').datetimepicker({
+	        	locale: 'es',
+	        	format: 'DD/MM/YYYY'
+	        });
+	        $('#datetimepicker5').datetimepicker({
+	        	locale: 'es',
+	        	format: 'DD/MM/YYYY'
+	        });
+	        $('#datetimepicker6').datetimepicker({
+	        	locale: 'es',
+	        	format: 'DD/MM/YYYY'
+	        });
+	        $('#datetimepicker7').datetimepicker({
+	        	locale: 'es',
+	        	format: 'DD/MM/YYYY'
+	        });	        
+	    });	
+	</script>
+</body>
+</html>

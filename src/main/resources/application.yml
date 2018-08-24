@@ -1,0 +1,31 @@
+spring:
+  banner:
+    charset: UTF-8
+    image:
+      width: 176
+      margin: 4
+      invert: false
+ 
+  datasource:
+    url: jdbc:mysql://localhost:3306/mydb?useSSL=false
+    username: root
+    password: bellota    
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties: 
+     dialect: org.hibernate.dialect.MySL5Dialect
+  thymeleaf:
+    cache: false         
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 4000KB
+      max-request-size: 4000KB 
+server:
+  error:
+    whitelabel:
+      enabled: false      
